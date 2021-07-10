@@ -14,17 +14,17 @@ export default function InputTask(props) {
     <div style={{ paddingTop: "10%" }}>
       <h2>So, what are you doing next?</h2>
       <div className="row justify-content-center">
-        <div className="col-8 mt-3 align-self-end">
+        <div className="col-6 mt-3 align-self-end">
           <div className="input-group">
             <input
               type="text"
-              className="form-control"
+              className="form-control py-2"
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
             ></input>
             <div className="input-group-append">
             <button
-                className="btn btn-success"
+                className="btn btn-success py-2"
                 onClick={clearInput}
                 type="button"
               >
