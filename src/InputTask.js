@@ -23,7 +23,7 @@ export default function InputTask(props) {
               onChange={(e) => setInputValue(e.target.value)}
             ></input>
             <div className="input-group-append">
-              <button
+            <button
                 className="btn btn-success"
                 onClick={clearInput}
                 type="button"

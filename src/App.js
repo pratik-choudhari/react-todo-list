@@ -9,7 +9,7 @@ function App() {
 
   const addTasks = (task) => {
     let tempTasks = tasks["tasks"];
-    task = { id: tempTasks.length + 1, text: task };
+    task = { id: tempTasks.length + 1, text: task, strike: false};
     tempTasks.push(task);
     setTask({ tasks: tempTasks });
   };
@@ -26,10 +26,22 @@ function App() {
     setTask({ tasks: result });
   };
 
+  const strikeTask = (taskid) => {
+    let tempTasks = tasks["tasks"];
+    let result = [];
+    for (let i = 0; i < tempTasks.length; i++) {
+      if (tempTasks[i].id === +taskid) {
+        tempTasks[i].strike = true
+      }
+      result.push(tempTasks[i]);
+    }
+    setTask({ tasks: result });
+  };
+
   return (
     <div className="App container text-center">
       <InputTask addTaskCallback={addTasks} />
-      <ListTasks tasksList={tasks["tasks"]} removeTaskCallback={removeTasks} />
+      <ListTasks tasksList={tasks["tasks"]} removeTaskCallback={removeTasks} strikeTaskCallback={strikeTask}/>
     </div>
   );
 }
